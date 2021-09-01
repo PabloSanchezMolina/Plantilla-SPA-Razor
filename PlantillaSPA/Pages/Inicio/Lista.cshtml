@@ -1,0 +1,26 @@
+﻿
+@model PlantillaSpa.DTO.Lista
+
+<div class="lista">
+    @if (Model == null)
+    {
+        <input type="text" value="" id="txtNombreNuevaLista" class="nombre" placeholder="Nombre de nueva lista..." />
+        <div class="botonera">
+            <span onclick="fCrearLista();" class="boton">
+                <i class="fas fa-plus"></i>
+            </span>
+        </div>
+    }
+    else
+    {
+        <span>@Model.Nombre</span>
+        <div class="botonera">
+            <span onclick="fEditarLista(@Model.Id);" class="boton">
+                <i class="fas fa-pen"></i>
+            </span>
+            <span onclick="fEliminarLista(@Model.Id);" class="boton">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </div>
+    }
+</div>

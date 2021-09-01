@@ -1,0 +1,23 @@
+﻿
+@model PlantillaSpa.DTO.Elemento
+
+<div class="elemento">
+    @if (Model == null)
+    {
+        <input type="text" value="" id="txtNombreNuevoElemento" class="nombre" placeholder="Nombre de nuevo elemento..." />
+        <div class="botonera">
+            <span onclick="fNuevoElemento();" class="boton">
+                <i class="fas fa-plus"></i>
+            </span>
+        </div>
+    }
+    else
+    {
+        <span>@Model.Nombre</span>
+        <div class="botonera">
+            <span onclick="fEliminarElemento(@Model.Id);" class="boton">
+                <i class="fas fa-trash-alt"></i>
+            </span>
+        </div>
+    }
+</div>

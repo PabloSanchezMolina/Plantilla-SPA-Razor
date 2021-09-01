@@ -1,0 +1,18 @@
+﻿
+@model PlantillaSpa.DTO.Inicio
+
+    <div class="inicio">
+        <div class="bienvenida">
+            <h1 class="titulo">
+                Bienvenido,
+            </h1>
+            <input type="text" value="@Model.Nombre" class="usuario" placeholder="Escriba aquí su nombre..." onchange="fGuardarNombreDeUsuario(this);" />
+        </div>
+        <div class="listado">
+            @foreach (var lista in Model.Listas)
+            {
+                <partial name="~/Pages/Inicio/Lista.cshtml" model="@lista" />
+            }
+            <partial name="~/Pages/Inicio/Lista.cshtml" model="@(null)" />
+        </div>
+    </div>

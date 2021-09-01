@@ -1,0 +1,25 @@
+﻿@page
+@using PlantillaSpa.DAO
+@model IndexModel
+@{
+    ViewData["Title"] = "SPA";
+    ViewData["Description"] = "Ejemplo de aplicación SPA con Razor y Ajax";
+}
+
+@section head {
+
+}
+
+@section scripts {
+
+}
+
+@switch (Model.PrimeraCarga.Actual)
+{
+    case Actividad.Estado.Inicio:
+        <partial name="~/Pages/Inicio/Index.cshtml" model="@Model.PrimeraCarga.Inicio" />
+        break;
+    case Actividad.Estado.EditarLista:
+        <partial name="~/Pages/EditarLista/Index.cshtml" model="@Model.PrimeraCarga.EditarLista" />
+        break;
+}

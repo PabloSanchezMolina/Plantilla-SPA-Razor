@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <title>@ViewData["Title"] - Plantilla SPA</title>
+    <meta name="description" content="@ViewData["Description"]" />
+    <environment include="Development">
+        <link href="~/css/main.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+    </environment>
+    <environment include="Production">
+        <link href="~/css/main.min.css" rel="stylesheet" type="text/css" asp-append-version="true" />
+    </environment>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    @await RenderSectionAsync("head", false)
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <header>
+        <nav>
+        </nav>
+    </header>
+
+    <main role="main" class="body" id="spa">
+        @RenderBody()
+    </main>
+
+    <footer>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/js/main.js" asp-append-version="true"></script>
+    </environment>
+    <environment include="Production">
+        <script src="~/js/main.min.js" asp-append-version="true"></script>
+    </environment>
+    @await RenderSectionAsync("scripts", false)
+</body>
+</html>
+
+
+
+

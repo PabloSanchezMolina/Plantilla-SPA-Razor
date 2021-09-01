@@ -1,0 +1,18 @@
+﻿
+@model PlantillaSpa.DTO.EditarLista
+
+    <div class="editar-lista">
+        <h1 class="nombre">@Model.Nombre</h1>
+        <div class="elementos">
+            @foreach (var elemento in Model.Elementos)
+            {
+                <partial name="~/Pages/EditarLista/Elemento.cshtml" model="@elemento" />
+            }
+            <partial name="~/Pages/EditarLista/Elemento.cshtml" model="@(null)" />
+        </div>
+        <div class="botonera">
+            <span onclick="fVolverAInicio();" class="boton">
+                <i class="far fa-hand-point-left"></i>
+            </span>
+        </div>
+    </div>
