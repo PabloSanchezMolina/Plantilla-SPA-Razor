@@ -13,16 +13,16 @@ La vista Razor de la primera carga (primera y única request, pues se trata de u
 Después, generará el html resultante de aplicar el modelo a la vista Razor que corresponde al estado actual de la aplicación. Ese html se devuelve en la response a javascript, cuya única finalidad es pisar el contenido anterior con el html nuevo (reducir a una sola sentencia la actualización del dom de la página es más eficiente desde el punto de vista del navegador). De esta manera evitamos implementar mediante javascript el data-binding que modifique la vista a partir del modelo, planteamiento de la mayoría de frameworks SPA de cliente.
 
 La solución la he organizado de esta manera:
-	1) Api:
-		*) El controlador con los Post para las llamadas Ajax
-		*) La clase que genera el html al aplicar un modelo a una vista razor
-		*) Las clases para definir el objeto devuelto y los parámetros recibidos
-	2) DAO: 
-		*) La gestión de la actividad del usuario (dividido en una partial class para cada estado)
-		*) La gestión de la caché (Redis)
-	3) DTO:
-		*) Una clase con el modelo por cada vista Razor que utilizaremos en el proyecto.
-	4) Pages:
-		*) Dividido en carpetas: una por cada estado.
+	1. Api:
+		* El controlador con los Post para las llamadas Ajax
+		* La clase que genera el html al aplicar un modelo a una vista razor
+		* Las clases para definir el objeto devuelto y los parámetros recibidos
+	2. DAO: 
+		* La gestión de la actividad del usuario (dividido en una partial class para cada estado)
+		* La gestión de la caché (Redis)
+	3. DTO:
+		* Una clase con el modelo por cada vista Razor que utilizaremos en el proyecto.
+	4. Pages:
+		* Dividido en carpetas: una por cada estado.
 
-Nota: En los partial names hay que utilizar rutas absolutas, porque las rutas relativas serán distintas dependiendo si se aplican desde la vista Razor que la incluya (en la primera carga) o si se leen al renderizar el modelo contra la vista desde la clase de Renderizado.
+*Nota:* En los partial names hay que utilizar rutas absolutas, porque las rutas relativas serán distintas dependiendo si se aplican desde la vista Razor que la incluya (en la primera carga) o si se leen al renderizar el modelo contra la vista desde la clase de Renderizado.
